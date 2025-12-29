@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SoundBoard - Real-time Collaborative Sounds</title>
+  <meta name="description" content="Join a room and make sounds together in real-time!">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1 class="logo">🔊 SoundBoard</h1>
+      <p class="tagline">Make noise together, in real-time</p>
+    </header>
+
+    <main class="main" id="main-content">
+      <!-- Home View -->
+      <div id="home-view" class="view active">
+        <div class="card">
+          <h2>Join or Create a Room</h2>
+          
+          <div class="form-group">
+            <label for="nickname">Your Nickname</label>
+            <input type="text" id="nickname" placeholder="Enter your nickname" maxlength="20">
+          </div>
+
+          <div class="tabs">
+            <button class="tab active" data-tab="create">Create Room</button>
+            <button class="tab" data-tab="join">Join Room</button>
+          </div>
+
+          <div id="create-tab" class="tab-content active">
+            <div class="form-group">
+              <label for="room-name">Room Name</label>
+              <input type="text" id="room-name" placeholder="Enter room name" maxlength="30">
+            </div>
+            <button id="create-btn" class="btn btn-primary">Create Room</button>
+          </div>
+
+          <div id="join-tab" class="tab-content">
+            <div class="form-group">
+              <label for="room-id">Room ID</label>
+              <input type="text" id="room-id" placeholder="Paste room ID here">
+            </div>
+            <button id="join-btn" class="btn btn-primary">Join Room</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Room View -->
+      <div id="room-view" class="view">
+        <div class="room-header">
+          <div class="room-info">
+            <h2 id="room-name-display">Room Name</h2>
+            <div class="room-id-container">
+              <span class="room-id-label">Room ID:</span>
+              <code id="room-id-display"></code>
+              <button id="copy-btn" class="btn-icon" title="Copy Room ID">📋</button>
+            </div>
+          </div>
+          <button id="leave-btn" class="btn btn-secondary">Leave Room</button>
+        </div>
+
+        <div class="sound-grid" id="sound-grid">
+          <!-- Sound buttons will be generated here -->
+        </div>
+
+        <div class="activity-feed">
+          <h3>Recent Activity</h3>
+          <ul id="activity-list"></ul>
+        </div>
+      </div>
+    </main>
+
+    <div id="toast" class="toast"></div>
+  </div>
+
+  <script src="/sounds.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
